@@ -28,6 +28,15 @@ angular.module('shortly', [
     // of interceptors. Think of it like middleware for your ajax calls
   $httpProvider.interceptors.push('AttachTokens');
 })
+.controller('NavbarController', function($scope, $location, Links, Auth) {
+  $scope.shortenNav = function() {
+    $location.path('/links'); 
+  }; 
+  $scope.viewAllNav = function() {
+    $location.path('/shorten'); 
+  }; 
+  $scope.signout = Auth.signout; 
+}) 
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request

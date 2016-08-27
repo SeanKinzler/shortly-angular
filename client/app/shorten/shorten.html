@@ -1,14 +1,13 @@
 <div ng-controller="ShortenController" id='container'>
 <!-- Your code here -->
   <h1>Shortened the Links</h1>
-  <div ng-click='changeView()'>
-    View All Links
-  </div>
   <form name='insertLink' ng-submit='addLink(url)'>
-    <input type='text' ng-model='url'>
+    <input type='url' ng-model='url'>
     <button>Shrink!</button>
   </form>
-  <button ng-click='signout()'>LOGOUT</button>
+  <br>
+  <div ng-hide='insertLink.$valid'>
+    Invalid URL {{insertLink.$valid}}
+  </div>
 </div>
-
 

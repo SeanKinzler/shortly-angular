@@ -1,13 +1,16 @@
 <div ng-controller=LinksController id='container'>
   <!-- Your html here -->
   <h1>LINKS</h1>
-  <div ng-click="changeView()"> 
-    Shorten a Link
-  </div>
+  <form> 
+    <input type='text' ng-model='search'>
+  </form>
   <ul>
-    <li ng-repeat="link in { $scope.data.links }">
-      {{ link.title }}
+    <li ng-repeat="link in data.links | filter:search">
+      {{ link.title }}<br>
+      {{ link.url }}<br>
+      <a ng-href= "http://localhost:3000/{{link.code}}">
+        {{ 'localhost:3000/' + link.code }}<br>
+      </a>
     </li>
   </ul>
-  <button ng-click='signout()'>LOGOUT</button>
 </div>

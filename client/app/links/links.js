@@ -7,6 +7,7 @@ angular.module('shortly.links', [])
       Links.getAll().then(function(data) {
         $scope.data.links = data;
       }); 
+      $scope.search = '';
     } else {
       $location.path('/signin');
     }
@@ -15,6 +16,11 @@ angular.module('shortly.links', [])
   $scope.changeView = function() {
     $location.path('/shorten');
   };
+
+  $scope.goToLink = function(link) {
+    console.log(link); 
+    $location.path('/' + link.code);
+  }; 
 
   $scope.init();
 
