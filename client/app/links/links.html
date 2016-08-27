@@ -1,3 +1,13 @@
-<div id='container'>
+<div ng-controller=LinksController id='container'>
   <!-- Your html here -->
+  <h1>LINKS</h1>
+  <div ng-click="changeView()"> 
+    Shorten a Link
+  </div>
+  <ul>
+    <li ng-repeat="link in { $scope.data.links }">
+      {{ link.title }}
+    </li>
+  </ul>
+  <button ng-click='signout()'>LOGOUT</button>
 </div>
